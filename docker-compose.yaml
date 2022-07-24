@@ -1,0 +1,16 @@
+services:
+  # Declare Frontend Service
+  frontend:
+    build: frontend
+    ports:
+      - "8000:8000"
+    environment:
+      FLASK_ADDRESS: "http://backend"
+      FLASK_PORT: "5000"
+    depends_on:
+      - backend
+  # Declare Backend Service
+  backend:
+    build: backend
+    ports:
+      - "5000"
